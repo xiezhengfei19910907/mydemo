@@ -1,8 +1,7 @@
 <code_scheme name="Default (1)">
   <option name="AUTODETECT_INDENTS" value="false" />
-  <option name="LINE_SEPARATOR" value="&#13;&#10;" />
+  <option name="LINE_SEPARATOR" value="&#10;" />
   <PHPCodeStyleSettings>
-    <option name="INDENT_CODE_IN_PHP_TAGS" value="true" />
     <option name="ALIGN_KEY_VALUE_PAIRS" value="true" />
     <option name="ALIGN_PHPDOC_PARAM_NAMES" value="true" />
     <option name="COMMA_AFTER_LAST_ARRAY_ELEMENT" value="true" />
