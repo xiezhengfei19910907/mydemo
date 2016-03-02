@@ -1,9 +1,11 @@
 <application>
   <component name="UISettings">
-    <option name="FONT_FACE" value="Cordia New" />
+    <option name="FONT_FACE" value="Microsoft YaHei UI" />
+    <option name="FONT_SIZE" value="13" />
     <option name="EDITOR_TAB_LIMIT" value="1000" />
     <option name="HIDE_TOOL_STRIPES" value="false" />
     <option name="SHOW_MAIN_TOOLBAR" value="true" />
     <option name="ACTIVATE_MRU_EDITOR_ON_CLOSE" value="true" />
+    <option name="OVERRIDE_NONIDEA_LAF_FONTS" value="true" />
   </component>
 </application>
