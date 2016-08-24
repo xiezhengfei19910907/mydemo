@@ -38,7 +38,7 @@
 <script language="JavaScript">
 
     $(function () {
-        $('body').on('click touchstart', 'area', function (event) {
+        $('body').on('click touchend', 'area', function (event) {
             event.preventDefault();
 
             var href = $(this).attr('href');
