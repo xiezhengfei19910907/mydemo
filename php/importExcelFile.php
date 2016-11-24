@@ -19,6 +19,7 @@ $languageMap = array_shift($regionArray);
 array_shift($languageMap);
 array_pop($languageMap);
 
+// TODO 查询一次数据库
 foreach ($languageMap as &$language) {
     $selectObject = $dbLink->prepare('SELECT languages_id FROM languages WHERE code = :code');
     $selectObject->bindValue(':code', $language);
