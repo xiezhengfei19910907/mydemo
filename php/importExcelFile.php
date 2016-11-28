@@ -20,18 +20,18 @@ array_shift($languageMap);
 array_pop($languageMap);
 
 // TODO 查询一次数据库
-foreach ($languageMap as &$language) {
-    $selectObject = $dbLink->prepare('SELECT languages_id FROM languages WHERE code = :code');
-    $selectObject->bindValue(':code', $language);
-    $selectObject->execute();
-    $languageObject = $selectObject->fetchAll(\PDO::FETCH_OBJ);
+//foreach ($languageMap as &$language) {
+//    $selectObject = $dbLink->prepare('SELECT languages_id FROM languages WHERE code = :code');
+//    $selectObject->bindValue(':code', $language);
+//    $selectObject->execute();
+//    $languageObject = $selectObject->fetchAll(\PDO::FETCH_OBJ);
+//
+//    $language = $languageObject[0]->languages_id;
+//}
+//unset($language);
 
-    $language = $languageObject[0]->languages_id;
-}
-unset($language);
 
-
-$sql = 'INSERT INTO region_language(region_id, language_id, region_name) VALUES ';
+$sql = 'INSERT INTO region_languages(region_id, lang_code, region_name) VALUES ';
 
 
 foreach ($regionArray as $regionInfo) {
@@ -41,7 +41,7 @@ foreach ($regionArray as $regionInfo) {
     foreach ($regionInfo as $language => $regionName) {
         $language = $languageMap[$language];
 
-        $sql .= sprintf('(%d, %d, %s),', (int) $region, (int) $language, $dbLink->quote(trim($regionName)));
+        $sql .= sprintf('(%d, %s, %s),', (int) $region, $dbLink->quote(strtolower($language)), $dbLink->quote(trim($regionName)));
     }
 }
 $sql = substr($sql, 0, -1);
