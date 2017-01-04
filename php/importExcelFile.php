@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $objPHPExcel = PHPExcel_IOFactory::load("Country_List_Translation.xlsx");
-$sheet = $objPHPExcel->getActiveSheet();
+$sheet = $objPHPExcel->getActiveSheet();    // TODO 循环遍历每一个sheet
 
 $highestColumn = $sheet->getHighestColumn();
 $highestRow = $sheet->getHighestRow();
@@ -17,7 +17,7 @@ $dbLink = new PDO('mysql:host=192.168.1.233;dbname=jjshouse;charset=UTF8', 'root
 
 $languageMap = array_shift($regionArray);
 array_shift($languageMap);
-array_pop($languageMap);
+//array_pop($languageMap);  // TODO array_filter
 
 // TODO 查询一次数据库
 //foreach ($languageMap as &$language) {
@@ -36,7 +36,7 @@ $sql = 'INSERT INTO region_languages(region_id, lang_code, region_name) VALUES '
 
 foreach ($regionArray as $regionInfo) {
     $region = array_shift($regionInfo);
-    array_pop($regionInfo);
+    //array_pop($regionInfo);
 
     foreach ($regionInfo as $language => $regionName) {
         $language = $languageMap[$language];
