@@ -1,4 +1,4 @@
 <?php
 
-echo '½ñÌìÊÇ:' . date('Y-m-d'), PHP_EOL;
-echo '-100ÌìÊÇ:' . date("Y-m-d", strtotime("- 100 day"));
+echo 'ä»Šå¤©æ˜¯:' . date('Y-m-d'), PHP_EOL;
+echo '-100å¤©æ˜¯:' . date("Y-m-d", strtotime("- 100 day"));
