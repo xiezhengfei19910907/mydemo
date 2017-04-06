@@ -1,0 +1,33 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+</head>
+
+<form method="POST" class="payment-form">
+    <script>
+        window.CKOConfig = {
+            debugMode: true,
+            publicKey: 'pk_test_120d73db-5531-46d5-9e3a-9aaef7b4a5dc',
+            customerEmail: 'user@email.com',
+            value: 100,
+            currency: 'GBP',
+            paymentMode: 'card',
+            cardFormMode: 'cardTokenisation',
+            countryCode: 'UK',
+            customerName: 'test name',
+            title: 'jjshouse.com',
+            subtitle: 'demo',
+            widgetContainerSelector: '.payment-form',
+            widgetColor: '#ced8e1',
+            widgetIconSize: 'medium',
+            buttonColor: '#3075dd',
+            themeColor: '#3075dd',
+            buttonColorLabel: '#3075dd',
+            iconColor: '#3075dd',
+            logoUrl: 'http://developers.checkout.com/dev/img/white.png'
+        }
+    </script>
+    <script async src="https://sandbox.checkout.com/js/checkout.js"></script>
+</form>
