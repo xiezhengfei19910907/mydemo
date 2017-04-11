@@ -13,6 +13,7 @@
         "pimple/pimple": "~2.1",
         "vdb/php-spider": "v0.2",
         "swiftmailer/swiftmailer": "v5.4.6",
+        "php-imap/php-imap": "~2.0",
         "lox/xhprof": "dev-master"
     },
     "require-dev":{
