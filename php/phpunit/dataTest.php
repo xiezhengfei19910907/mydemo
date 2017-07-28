@@ -74,4 +74,12 @@ class DataTest extends \PHPUnit\Framework\TestCase {
         $this->assertTrue(true);
     }
 
+    /**
+     * 对输出进行测试
+     */
+    public function testPrintBuffer() {
+        print 'print';
+        $this->expectOutputString('print');
+    }
+
 }
