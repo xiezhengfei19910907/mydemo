@@ -3,3 +3,4 @@ vendor/
 composer.lock
 js/node_modules
 *.class
+php/soap/
