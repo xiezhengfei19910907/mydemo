@@ -30,7 +30,6 @@ $request = array(
         'uname'    => 'zyh',
         'version'  => '1',
         'signid'   => '2132',
-        'provider' => 'haifeng',
         'ip'       => '192.168.8.23',
         'appid'       => '5',
         'log_id' => gen_sign_id(),
@@ -39,10 +38,6 @@ $request = array(
 );
 $request = json_encode($request);
 $result = $client_tmp->doNormal($worker_name, $request);
-
-var_dump($client_tmp->returnCode());
-var_dump($client_tmp->getErrno());
-var_dump($client_tmp);
 
 if (GEARMAN_SUCCESS == $client_tmp->returnCode()) {
     $result = json_decode($result);
