@@ -4,6 +4,9 @@
  * Date: 2019-03-16
  */
 
+use Intervention\Image\ImageManager;
+
+
 $imageList = [
     base64_encode(file_get_contents('./WechatIMG3476.jpeg')),
     base64_encode(file_get_contents('./WechatIMG3475.jpeg')),
