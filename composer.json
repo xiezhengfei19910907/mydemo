@@ -12,6 +12,7 @@
         "monolog/monolog": "1.10 - 1.19",
         "pimple/pimple": "~2.1",
         "vlucas/phpdotenv": "~2.2",
+        "intervention/image": "^2.4",
         "lox/xhprof": "dev-master"
     },
     "require-dev":{
