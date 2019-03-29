@@ -17,10 +17,10 @@ $imageStream = file_get_contents('./boss.txt');
 
 $imageManager = new ImageManager();
 $imageManager = $imageManager->make($imageStream);
+unset($imageStream);
 //$imageManager->save("origin.{$extersion}");
 $height = $imageManager->height();
 $width = $imageManager->width();
-
 $mime = $imageManager->mime();
 $temp = !empty($mime) ? explode('/', $mime) : [];
 if (!empty($temp)) {
@@ -34,7 +34,6 @@ $x = $y = 0;
 while (true) {
     echo 'x:' . $x . ' y:' . $y, PHP_EOL;
     echo 'currentHeight:' . $currentHeight, PHP_EOL;
-    unset($cloneImage);
 
     if ($currentHeight <= $maxHeight) {
         $cloneImage = clone $imageManager;
@@ -48,11 +47,18 @@ while (true) {
     //$cloneImage->save("{$currentHeight}.{$extersion}");
 
     $y += $maxHeight;
-    $currentHeight = $height - $maxHeight;
+    $currentHeight -= $maxHeight;
 }
-unset($imageManager);
+unset($imageManager, $cloneImage);
 
 //var_dump($imageList);exit();
+$encodeImageList = [];
 foreach ($imageList as $index => $image) {
-    $image->save("{$index}.{$extersion}");
+    // $image->save("{$index}.{$extersion}");
+    ob_start();
+    $image->save("php://output");
+    $stream = ob_get_clean();
+
+    $encodeImage = base64_encode($stream);
+    $encodeImageList[] = $encodeImage;
 }
