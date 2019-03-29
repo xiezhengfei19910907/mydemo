@@ -1,8 +1,8 @@
 <?php
 /**
- * 如果图片高度大于4096 切割图片
+ * 如果图片高度大于指定高度 切割图片
  * Created by allen
- * Date: 2019-03-16
+ * Date: 2019-03-29
  */
 
 use Intervention\Image\ImageManager;
@@ -18,7 +18,6 @@ $imageStream = file_get_contents('./boss.txt');
 $imageManager = new ImageManager();
 $imageManager = $imageManager->make($imageStream);
 unset($imageStream);
-//$imageManager->save("origin.{$extersion}");
 $height = $imageManager->height();
 $width = $imageManager->width();
 $mime = $imageManager->mime();
@@ -26,6 +25,7 @@ $temp = !empty($mime) ? explode('/', $mime) : [];
 if (!empty($temp)) {
     $extersion = array_pop($temp);
 }
+//$imageManager->save("origin.{$extersion}");
 
 $currentHeight = $height;
 $imageList = [];
