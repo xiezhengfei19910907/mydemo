@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    {{message1}}
+</div>
+
+<script language="JavaScript">
+    var app = new Vue({
+        el: "#app",
+        data: {
+            message1: "hello Vue!"
+        }
+    });
+
+
+
+    app.$watch('message1', function (newVal, oldVal){
+        console.log(newVal, oldVal)
+    })
+
+    app.message1 = 'Hello World!'
+
+
+
+</script>
+</body>
+</html>

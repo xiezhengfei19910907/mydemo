@@ -10,6 +10,5 @@ return array(
     '7b11c4dc42b3b3023073cb14e519683c' => $vendorDir . '/ralouphie/getallheaders/src/getallheaders.php',
     'a0edc8309cc5e1d60e3047b5df6b7052' => $vendorDir . '/guzzlehttp/psr7/src/functions_include.php',
     '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => $vendorDir . '/symfony/polyfill-mbstring/bootstrap.php',
-    '8ac259e46781d60665439a97846a4a66' => $vendorDir . '/lox/xhprof/xhprof_lib/utils/xhprof_lib.php',
-    'e30869f87cf76d235b75bb956c7ba9ed' => $vendorDir . '/lox/xhprof/xhprof_lib/utils/xhprof_runs.php',
+    '0ccdf99b8f62f02c52cba55802e0c2e7' => $vendorDir . '/zircote/swagger-php/src/functions.php',
 );

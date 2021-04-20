@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>components</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <times></times>
+</div>
+
+<template id="com">
+    <button type="button" @click="add">当前点击了 {{times}} 次</button>
+</template>
+
+
+<script>
+    Vue.component('times', {
+        template: "#com",
+        // template: '<button type="button" @click="add">当前点击了 {{times}} 次</button>',
+        data: function (){
+            return {
+                times: 0
+            }
+        },
+        methods: {
+            add: function () {
+                this.times++;
+            }
+        }
+    })
+
+
+    var app = new Vue({
+        el: "#app"
+    })
+
+
+</script>
+</body>
+</html>

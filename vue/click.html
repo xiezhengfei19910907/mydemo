@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>click</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="button" value="-" @click="sub" />
+    <span>{{num}}</span>
+    <input type="button"  value="+" @click="add" />
+</div>
+
+<script language="JavaScript">
+    var app = new Vue({
+        el: "#app",
+        data: {
+            num: 1
+        },
+        methods:{
+            add: function (){
+                if (this.num >= 10) {
+                    alert("已经到最大值了!");
+
+                } else {
+                    this.num++;
+                }
+            },
+            sub: function (){
+                if (this.num <= 0) {
+                    alert("已经到最小值了!");
+                } else {
+
+                    this.num--;
+
+                }
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

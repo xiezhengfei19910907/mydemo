@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>查询天气</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="city" @keyup.enter="getWeather"/>
+    <button type="button" @click="getWeather">查询天气</button>
+    <p>热门城市: <span @click="changeCity('北京')">北京</span> <span @click="changeCity('上海')">上海</span> <span
+            @click="changeCity('广州')">广州</span> <span @click="changeCity('重庆')">重庆</span></p>
+
+    <div v-show="weartherList.length != 0">
+        <hr>
+        <p>温度:{{ wendu }} 感冒: {{ ganmao }}</p>
+        <ul>
+            <li v-for="item in weartherList">
+                {{ item.date }} {{item.high}} {{item.low}}
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+
+</html>
+
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: "#app",
+        data: {
+            city: "",
+            weartherList: [],
+            wendu: 0,
+            ganmao: ""
+        },
+        methods: {
+            getWeather: function () {
+            	if (this.city == "") {
+            		alert("未输入城市!");
+            		return;
+				}
+                var that = this;
+
+                axios.get("http://wthrcdn.etouch.cn/weather_mini?city=" + that.city).then(function (response) {
+
+                    // console.log(response.data);
+
+                    that.weartherList = response.data.data.forecast;
+                    that.wendu = response.data.data.wendu;
+                    that.ganmao = response.data.data.ganmao;
+                }, function (err) {
+                })
+            },
+            changeCity: function (name) {
+                this.city = name;
+
+                this.getWeather();
+            }
+        }
+    })
+</script>
+

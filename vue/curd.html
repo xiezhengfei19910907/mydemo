@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>curd</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="todolist">
+    <input type="text" v-model="userInput" @keyup.enter="addInput" />
+    <ul>
+        <li v-for="(value, index) in list">
+            {{ index+1 }} {{ value }}
+            <input type="button" value="删除清单" @click="removeInput(index)">
+        </li>
+    </ul>
+    <span>{{ list.length }}条待办事项</span>
+    <input type="button" value="清空清单" @click="clearInput" v-show="list.length != 0">
+</div>
+</body>
+</html>
+
+
+<script language="JavaScript">
+    var app = new Vue({
+        el: "#todolist",
+        data:{
+            userInput: "新增清单",
+            list: ["清单1", "清单2", "清单3"],
+        },
+        methods:{
+            addInput:function(){
+                this.list.push(this.userInput);
+            },
+            removeInput:function(index){
+                this.list.splice(index, 1);
+            },
+            clearInput: function() {
+                this.list = [];
+            }
+        }
+    })
+</script>
