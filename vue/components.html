@@ -26,14 +26,29 @@
         },
         methods: {
             add: function () {
-                this.times++;
+                this.times = this.times+2;
             }
         }
     })
 
 
     var app = new Vue({
-        el: "#app"
+        el: "#app",
+        components: {
+            times: {
+                template: "#com",
+                data: function (){
+                    return {
+                        times: 0
+                    }
+                },
+                methods: {
+                    add: function () {
+                        this.times = this.times+3;
+                    }
+                }
+            }
+        }
     })
 
 
