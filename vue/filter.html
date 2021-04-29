@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  {{message | replace}}
+</div>
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+  Vue.filter("replace", function (word) {
+    return word.replace(/文字/g, "wenzi")
+  })
+
+  new Vue({
+    el: "#app",
+    data: {
+      message: "待替换文字, 待替换文字"
+    },
+      filters:{
+        replace: function (word) {
+            return word.replace(",", "=====")
+        }
+      }
+  })
+
+
+
+</script>
