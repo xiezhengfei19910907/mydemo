@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Directive</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app" v-color="'silver'">
+  {{message}}
+</div>
+
+<br>
+
+<div id="app2" v-color="'red'" v-backgroud="'blue'">
+  {{message}}
+</div>
+
+<br>
+
+<input type="text" id="app3" placeholder="这里是文本框" v-focus>
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+  Vue.directive("color", function (el, binding) {
+
+    el.style.color = binding.value;
+  });
+
+  Vue.directive("backgroud", {
+    inserted: function (el, binding) {
+
+    },
+    updated: function (el, binding) {
+      
+    },
+    bind: function (el, binding) {
+      el.style.background = binding.value;
+    }
+  })
+
+  new Vue({
+    el: "#app",
+    data: {
+      message: "多彩的消息",
+      red: "red",
+      blue: "blue"
+    }
+  })
+
+
+  new Vue({
+    el: "#app2",
+    data: {
+      message: "多彩的消息2"
+    }
+  })
+
+
+  new Vue({
+    el: "#app3",
+    data: {
+
+    },
+    directives: {
+      focus: {
+        inserted: function (el, binding) {
+          el.focus();
+        },
+        bind: function (el, binding) {
+          el.style.color="yellow"
+        },
+        updated: function (el, binding) {
+          
+        }
+      }
+    }
+  })
+</script>
