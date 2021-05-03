@@ -1,4 +1,13 @@
 # import importFold
+import time
+
+print(time.localtime(time.time()))
+
+print(time.strftime('%m_%d_%H_%M_%S', time.localtime(time.time())))
+
+print(time.strftime('%Y_%m_%d_%H_%M_%S', time.localtime(time.time())))
+
+
 
 a = 100
 b = a
